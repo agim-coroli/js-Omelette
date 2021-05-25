@@ -40,11 +40,6 @@ let couteau = {
 }
 
 
-// Créer des produits (ingrédients) à mettre dans le magasin qui serviront à créer l'omelette (oignon, oeuf, epice, fromage, ...);
-// >- attributs : nom, etats ( entier,coupé, moulu), prix
-
-
-
 // Créer un lieu "epicerie" qui a comme propriétés :
 // >- nom, personnes = [], paniers (plusieurs objets paniers avec le type de panier et le contenu du panier),
 // >- Les "ingrédients" créés juste au dessus contenus dans un tableau.
