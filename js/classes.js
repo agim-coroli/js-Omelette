@@ -8,3 +8,5 @@ class Ingredient {
         this.prix = prix;
     }
 }
+
+export default Ingredient;

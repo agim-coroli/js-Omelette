@@ -82,3 +82,6 @@ let bol = {
 
     },
 },
+
+
+export {personne, maison, couteau, epicerie, poele, bol};
