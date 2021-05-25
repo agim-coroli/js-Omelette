@@ -15,13 +15,24 @@ let personne = {
     mainDroite: "",
     mainGauche: "",
     seDeplacer(endroit) {
-
+        this.lieu = endroit;
+        console.log(`${this.nom} est à ${endroit.nom}`);
     },
     payerArticle() {
-
+        for (let i = 0; i < this.mainDroite.contenu.length; i++) {
+            this.argent = this.argent - this.mainDroite.contenu[i].prix
+        }
     },
     couper(le) {
-
+        for (let i = 0; i < bol.contenu.length; i++) {
+            if (le[i].etat != "entier") {
+                console.log(`${le[i].nom} est déjà coupé`);
+            } else {
+                le[i].etat = "coupé"
+                console.log(`${le[i].nom} a été coupé avec la main droite`);
+            }
+        }
+        this.mainDroite = ""
     }
 }
 
@@ -40,31 +51,18 @@ let couteau = {
 }
 
 
-// Créer un lieu "epicerie" qui a comme propriétés :
-// >- nom, personnes = [], paniers (plusieurs objets paniers avec le type de panier et le contenu du panier),
-// >- Les "ingrédients" créés juste au dessus contenus dans un tableau.
-let epicerie = {
-    nom: "l'épicerie",
-    personnes: [],
-    ingredients: [oignon, oeuf, epice, fromage],
-    panier: [
-        panier1 = {
-            nom: "panier1",
-            contenu: []
-        },
-        panier2 = {
-            nom: "panier2",
-            contenu: []
-        }
-    ],
 
-}
+
 
 // Créer un poele avec un tableau comme contenu. Et avec une méthode cuir() qui, après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
 let poele = {
     contenu: [],
     cuir() {
-
+        setTimeout(()=>{
+            this.contenu.push()
+            this.contenu.etat = "cuite"
+            console.log(`L'omelette est ${this.contenu.etat}`);
+        },4000)
     },
 
 }
@@ -76,12 +74,26 @@ let poele = {
 let bol = {
     contenu: [],
     mixer() {
-
+        for (let i = 0; i < personne.mainDroite.contenu.length; i++) {
+            this.contenu.push(personne.mainDroite.contenu[i])
+            console.log(`J'ai mis ${personne.mainDroite.contenu[i].nom} dans le bol`);
+        }
+        personne.mainDroite.contenu.splice(0, personne.mainDroite.contenu.length)
+        console.log(`mon panier est vide: ${personne.mainDroite.contenu}`);
     },
     melanger() {
-
+        for (let i = 0; i < this.contenu.length; i++) {
+            if (this.contenu[i].etat == "coupé" || this.contenu[i].etat == "moulu") {
+                var newMelange = {
+                    nom: "Omelette",
+                    etat: "non cuite"
+                }
+            } else {
+            }
+            console.log(`J'ai maintenant dans mon bol une ${newMelange.nom} mais elle est ${newMelange.etat}`);
+            this.contenu = newMelange
+        }
     },
-},
+}
 
-
-export {personne, maison, couteau, epicerie, poele, bol};
+export {personne, maison, couteau, poele, bol}
